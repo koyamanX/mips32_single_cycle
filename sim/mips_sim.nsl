@@ -1,0 +1,60 @@
+#include "mips32.nsl" 
+#define FINISH 16
+declare mips_sim simulation {}
+module mips_sim
+{
+	mips32 core;
+	/*
+	mem imem[256][32] = {
+		32'b100011_00000_00001_00000000_00000000,
+		32'b100011_00000_00010_00000000_00000001,
+		32'b100011_00000_00011_00000000_00000010,
+		32'b000000_00001_00000_00100_00000_100000,
+		32'b000000_00001_00010_00101_00000_100000
+	};
+	*/
+	mem imem[256][32] = {
+		32'b001000_00000_00001_0000000000001111
+	};
+	mem dmem[256][32] = {1, 5, 3};
+	reg r = 0;
+	reg cnt[32] = 0;
+
+	if(~r)
+	{
+		r := ~r;
+		core.startup();
+	}
+	any
+	{
+		cnt == FINISH:
+		{
+			_finish();
+		}
+		else:
+		{
+			cnt++;
+		}
+	}
+
+
+	func core.imread
+	{
+		//memory decoder
+		any
+		{
+			core.iadrs[1:0] == 2'b11: return (imem[core.iadrs[31:2]] & 0x000000ff);
+			core.iadrs[1:0] == 2'b10: return (imem[core.iadrs[31:2]] & 0x0000ffff);
+			core.iadrs[1:0] == 2'b01: return (imem[core.iadrs[31:2]] & 0x00ffffff);
+			core.iadrs[1:0] == 2'b00: return (imem[core.iadrs[31:2]] & 0xffffffff);
+		}
+	}
+	func core.dmread
+	{
+		return dmem[core.dadrs];
+	}
+	func core.dmwrite
+	{
+		dmem[core.dadrs] := core.ddata;
+	}
+}

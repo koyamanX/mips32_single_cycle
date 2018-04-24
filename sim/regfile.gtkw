@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Sat Mar 17 05:22:42 2018
+[*]
+[dumpfile] "~/project/mips32_single_cycle/sim/sim.vcd"
+[dumpfile_mtime] "Sat Mar 17 05:20:01 2018"
+[dumpfile_size] 11284
+[savefile] "/home/chihiro/project/mips32_single_cycle/sim/regfile.gtkw"
+[timestart] 0
+[size] 1366 699
+[pos] -174 -59
+*-1.006674 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.sim_instance.
+[sst_width] 220
+[signals_width] 243
+[sst_expanded] 1
+[sst_vpaned_height] 180
+@29
+tb.sim_instance.m_clock
+@28
+tb.sim_instance.p_reset
+tb.sim_instance.r
+tb.sim_instance.tst
+tb.sim_instance.mips_regfile.reada
+tb.sim_instance.mips_regfile.readb
+tb.sim_instance.mips_regfile.write
+@22
+tb.sim_instance.mips_regfile.rnuma[4:0]
+tb.sim_instance.mips_regfile.rnumb[4:0]
+tb.sim_instance.mips_regfile.wnum[4:0]
+tb.sim_instance.mips_regfile.wdata[31:0]
+tb.sim_instance.mips_regfile.rdataa[31:0]
+tb.sim_instance.mips_regfile.rdatab[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

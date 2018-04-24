@@ -1,0 +1,90 @@
+[*]
+[*] GTKWave Analyzer v3.3.79 (w)1999-2017 BSI
+[*] Thu Mar 29 09:19:21 2018
+[*]
+[dumpfile] "/home/chihiro/project/mips32_single_cycle/sim/mips_sim.vcd"
+[dumpfile_mtime] "Thu Mar 29 09:14:50 2018"
+[dumpfile_size] 14418
+[savefile] "/home/chihiro/project/mips32_single_cycle/sim/mips.gtkw"
+[timestart] 0
+[size] 1920 983
+[pos] -39 -39
+*-1.496369 4 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.mips_sim_instance.
+[treeopen] tb.mips_sim_instance.core.
+[sst_width] 229
+[signals_width] 284
+[sst_expanded] 1
+[sst_vpaned_height] 569
+@28
+tb.mips_sim_instance.m_clock
+tb.mips_sim_instance.p_reset
+@22
+tb.mips_sim_instance.cnt[31:0]
+@28
+tb.mips_sim_instance.core.startup
+tb.mips_sim_instance.core.exe
+@22
+tb.mips_sim_instance.core.mips_pc[31:0]
+tb.mips_sim_instance.core.newpc[31:0]
+@28
+tb.mips_sim_instance.core.imread
+@22
+tb.mips_sim_instance.core.iadrs[31:0]
+tb.mips_sim_instance.core.idata[31:0]
+@28
+tb.mips_sim_instance.core.dmread
+tb.mips_sim_instance.core.dmwrite
+@22
+tb.mips_sim_instance.core.dadrs[31:0]
+tb.mips_sim_instance.core.ddata[31:0]
+@28
+tb.mips_sim_instance.core.mips_reg.reada
+@22
+tb.mips_sim_instance.core.mips_reg.rnuma[4:0]
+tb.mips_sim_instance.core.mips_reg.rdataa[31:0]
+@28
+tb.mips_sim_instance.core.mips_reg.readb
+@22
+tb.mips_sim_instance.core.mips_reg.rnumb[4:0]
+tb.mips_sim_instance.core.mips_reg.rdatab[31:0]
+@28
+tb.mips_sim_instance.core.mips_reg.write
+@22
+tb.mips_sim_instance.core.mips_reg.wnum[4:0]
+tb.mips_sim_instance.core.mips_reg.wdata[31:0]
+tb.mips_sim_instance.core.mips_ctl_unit.inst[5:0]
+@28
+tb.mips_sim_instance.core.mips_ctl_unit.aluOp0
+tb.mips_sim_instance.core.mips_ctl_unit.aluOp1
+tb.mips_sim_instance.core.mips_ctl_unit.aluSrc
+tb.mips_sim_instance.core.mips_ctl_unit.branch
+tb.mips_sim_instance.core.mips_ctl_unit.mem2Reg
+tb.mips_sim_instance.core.mips_ctl_unit.memRead
+tb.mips_sim_instance.core.mips_ctl_unit.memWrite
+@29
+tb.mips_sim_instance.core.mips_ctl_unit.jump
+@28
+tb.mips_sim_instance.core.mips_ctl_unit.regDst
+tb.mips_sim_instance.core.mips_ctl_unit.regWrite
+tb.mips_sim_instance.core.mips_alu_ctl.aluop[1:0]
+@22
+tb.mips_sim_instance.core.mips_alu_ctl.fn[3:0]
+tb.mips_sim_instance.core.mips_alu_ctl.funct[5:0]
+tb.mips_sim_instance.core.mips_alu.a[31:0]
+tb.mips_sim_instance.core.mips_alu.b[31:0]
+tb.mips_sim_instance.core.mips_alu.fn[3:0]
+@28
+tb.mips_sim_instance.core.mips_alu.exe
+@22
+tb.mips_sim_instance.core.mips_alu.q[31:0]
+@28
+tb.mips_sim_instance.core.mips_alu.zero
+tb.mips_sim_instance.core.mips_adder.cin
+@22
+tb.mips_sim_instance.core.mips_adder.a[31:0]
+tb.mips_sim_instance.core.mips_adder.b[31:0]
+tb.mips_sim_instance.core.mips_adder.q[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

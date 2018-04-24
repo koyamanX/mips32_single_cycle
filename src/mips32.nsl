@@ -1,0 +1,105 @@
+#include "mips32_single_cycle.h"
+#include "reg32.nsl"
+#include "inc32.nsl"
+#include "cla32.nsl"
+#include "alu32.nsl"
+#include "alu_ctl.nsl"
+#include "ctl_unit.nsl"
+
+module mips32
+{
+	reg32 mips_reg;
+	reg mips_pc[32];
+	inc32 mips_inc;
+	cla32 mips_adder;
+	alu32 mips_alu;
+	alu_ctl mips_alu_ctl;
+	ctl_unit mips_ctl_unit;
+	Itype wire inst;
+	wire newpc[32];
+	wire wnum[5];
+	wire wdata[32];
+	wire mdata[32];
+	wire alub[32];
+	proc_name exe(mips_pc);
+
+	func startup
+	{
+		exe(0x00000000);
+	}
+
+	proc exe
+	{
+		/* fetch instruction from imem */
+		inst = imread(mips_pc);
+		/* increment pc */
+		mips_inc.exe(mips_pc);
+		/* read data from register file */
+		mips_reg.reada(inst.rs);
+		mips_reg.readb(inst.rt);
+		/* decode */
+		mips_ctl_unit.inst = inst.op;
+		mips_alu_ctl.funct = inst.im[5:0];
+		mips_alu_ctl.aluop = {mips_ctl_unit.aluOp1, mips_ctl_unit.aluOp0};
+		mips_alu.exe(mips_reg.rdataa, alub, mips_alu_ctl.fn);
+		/* control path */
+		if(mips_ctl_unit.regDst)
+		{
+			//rd field of the instruction
+			wnum = inst[15:11];
+		}
+		else
+		{
+			wnum = inst.rt;	
+		}
+
+		if(mips_ctl_unit.aluSrc)
+		{
+			alub = 32#(inst.im);
+		}
+		else
+		{
+			alub = mips_reg.rdatab;
+		}
+
+		if(mips_ctl_unit.jump)
+		{
+			newpc = {mips_inc.q[31:28], {inst[25:0], 2'b00}};
+		}
+		else if(mips_ctl_unit.branch & mips_alu.zero)
+		{
+			//sign extend && 2 bit left shift
+			newpc = mips_adder.exe({(32#(inst.im))[29:0], 2'b00}, mips_inc.q, 1'b0);
+		}
+		else
+		{
+			newpc = mips_inc.q;
+		}
+
+		if(mips_ctl_unit.mem2Reg)
+		{
+			wdata = mdata;
+		}
+		else
+		{
+			wdata = mips_alu.q;
+		}
+
+		any
+		{
+			(mips_ctl_unit.regWrite):
+			{
+				mips_reg.write(wnum, wdata);
+			}
+			(mips_ctl_unit.memRead):
+			{
+				mdata = dmread(mips_alu.q);
+			}
+			(mips_ctl_unit.memWrite):
+			{
+				dmwrite(mips_alu.q, mips_reg.rdataa);		
+			}
+		}
+		exe(newpc);
+	}
+}

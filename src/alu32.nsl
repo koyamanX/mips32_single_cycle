@@ -1,0 +1,44 @@
+#include "mips32_single_cycle.h"
+module alu32
+{
+	wire result[32];
+	cla32 mips_cla32;
+	func exe
+	{
+		any
+		{ 
+			(fn == 4'b0000):
+			{
+				/* AND */
+				result = a & b;
+			}
+			(fn == 4'b0001):
+			{
+				/* OR */
+				result = a | b;
+			}
+			(fn == 4'b0010):
+			{
+				/* ADD */
+				result = mips_cla32.exe(a, b, 1'b0);
+			}
+			(fn == 4'b0110):
+			{
+				/* SUB */
+				result = mips_cla32.exe(a, ~b, 1'b0);
+			}
+			(fn == 4'b0111):
+			{
+				/* SLT */
+				result = if(a < b) 32'b1 else 32'b0;
+			}
+			(fn == 4'b1100):
+			{
+				/* NOR */
+				result = ~(a | b);
+			}
+		}
+		zero = if(result) 1'b0 else 1'b1;
+		q = result;
+	}
+}

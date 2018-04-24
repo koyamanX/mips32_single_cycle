@@ -1,0 +1,28 @@
+#include "mips32_single_cycle.h"
+#include "cla32.nsl"
+#include "alu32.nsl"
+#include "alu_ctl.nsl"
+
+declare alu_ctl_sim simulation {}
+module alu_ctl_sim 
+{
+	alu32 mips_alu;
+	alu_ctl mips_alu_ctl;
+	func_self tst;
+	reg r = 0;
+
+	if(~r)
+	{
+		r := 1;
+		tst();
+	}
+	func tst
+	seq
+	{
+		{
+			mips_alu_ctl.aluop = 2'b00;
+			mips_alu.exe(3'b010, 3'b001, mips_alu_ctl.fn);
+		}
+		_finish();
+	}
+}

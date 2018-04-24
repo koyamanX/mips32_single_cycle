@@ -1,0 +1,37 @@
+#include "mips32_single_cycle.h"
+#include "reg32.nsl"
+
+declare regfile_sim simulation {}
+module regfile_sim
+{
+	reg32 mips_regfile;
+	reg i[6];
+	reg r = 0;	
+	func_self tst;
+
+	func tst
+	seq
+	{
+		for(i := 0; i < 32; i++)
+		{
+			mips_regfile.write(i, i);
+		}
+		for(i := 0; i < 16; i++)
+		{
+			{
+				mips_regfile.reada(i);
+				mips_regfile.readb(i + 1);
+			}
+		}
+		_finish();
+
+	}
+
+	if(~r)
+	{
+		r := 1;
+		tst();
+	}
+
+	
+}

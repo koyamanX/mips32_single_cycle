@@ -1,0 +1,55 @@
+#define ALU_ADD 4'b0010
+#define ALU_SUB 4'b0110
+#define ALU_AND 4'b0000
+#define ALU_OR  4'b0001
+#define ALU_NOR 4'b1100
+#define ALU_SLT 4'b0111
+
+
+module alu_ctl
+{
+	any
+	{
+		(aluop == 2'b10):
+		{
+			/* Rtype */
+			any
+			{
+				(funct == 6'b100000):
+				{
+					fn = ALU_ADD;	
+				}
+				(funct == 6'b100010):
+				{
+					fn = ALU_SUB;
+				}
+				(funct == 6'b100100):
+				{
+					fn = ALU_AND;
+				}
+				(funct == 6'b100101):
+				{
+					fn = ALU_OR;
+				}
+				(funct == 6'b100110):
+				{
+					fn = ALU_NOR;
+				}
+				(funct == 6'b101010):
+				{
+					fn = ALU_SLT;
+				}
+			}
+		}
+		(aluop == 2'b00):
+		{
+			/* ADD for lw, sw */
+			fn = ALU_ADD;
+		}
+		(aluop == 2'b01):
+		{
+			/* SUB for beq */
+			fn = ALU_SUB;
+		}
+	}
+}

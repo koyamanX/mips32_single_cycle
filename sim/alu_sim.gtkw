@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Sat Mar 17 08:33:08 2018
+[*]
+[dumpfile] "(null)"
+[savefile] "/home/chihiro/project/mips32_single_cycle/sim/alu_sim.gtkw"
+[timestart] 0
+[size] 1366 699
+[pos] -174 -59
+*-2.306234 12 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.alu_sim_instance.
+[sst_width] 220
+[signals_width] 208
+[sst_expanded] 1
+[sst_vpaned_height] 180
+@29
+tb.alu_sim_instance.m_clock
+@28
+tb.alu_sim_instance.p_reset
+tb.alu_sim_instance.tst
+tb.alu_sim_instance.r
+tb.alu_sim_instance.i[2:0]
+@22
+tb.alu_sim_instance.mips_alu.a[31:0]
+tb.alu_sim_instance.mips_alu.b[31:0]
+@28
+tb.alu_sim_instance.mips_alu.exe
+@22
+tb.alu_sim_instance.mips_alu.fn[3:0]
+tb.alu_sim_instance.mips_alu.q[31:0]
+tb.alu_sim_instance.mips_alu.result[31:0]
+@28
+tb.alu_sim_instance.mips_alu.zero
+[pattern_trace] 1
+[pattern_trace] 0

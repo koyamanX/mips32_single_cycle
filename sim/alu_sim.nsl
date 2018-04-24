@@ -1,0 +1,30 @@
+#include "mips32_single_cycle.h"
+#include "alu32.nsl"
+#include "cla32.nsl"
+
+declare alu_sim simulation {}
+module alu_sim 
+{
+	func_self tst;
+	reg r = 0;
+	alu32 mips_alu;
+	mem fn[5][4] = {4'b0000, 4'b0001, 4'b0010, 4'b0110, 4'b0111, 4'b1100};
+	reg i[3];
+
+	func tst
+	seq
+	{
+		for(i := 0;	i < 5; i++)
+		{
+			mips_alu.exe(6'b001111, 6'b010101, fn[i]);
+		}
+
+		_finish();
+	}
+
+	if(~r)
+	{
+		r := 1;
+		tst();
+	}
+}

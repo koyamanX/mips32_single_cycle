@@ -1,0 +1,8 @@
+module cla32
+{
+	func exe
+	{
+		return a + b + 32'(cin);
+	}
+}
+

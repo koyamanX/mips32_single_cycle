@@ -1,0 +1,153 @@
+module reg32
+{
+	//reg r0[32];
+	reg r1[32];
+	reg r2[32];
+	reg r3[32];
+	reg r4[32];
+	reg r5[32];
+	reg r6[32];
+	reg r7[32];
+	reg r8[32];
+	reg r9[32];
+	reg r10[32];
+	reg r11[32];
+	reg r12[32];
+	reg r13[32];
+	reg r14[32];
+	reg r15[32];
+	reg r16[32];
+	reg r17[32];
+	reg r18[32];
+	reg r19[32];
+	reg r20[32];
+	reg r21[32];
+	reg r22[32];
+	reg r23[32];
+	reg r24[32];
+	reg r25[32];
+	reg r26[32];
+	reg r27[32];
+	reg r28[32];
+	reg r29[32];
+	reg r30[32];
+	reg r31[32];
+
+	func reada
+	{
+		any
+		{
+			(rnuma == 5'b00000): return 32'b0;
+			(rnuma == 5'b00001): return r1;
+			(rnuma == 5'b00010): return r2;
+			(rnuma == 5'b00011): return r3;
+			(rnuma == 5'b00100): return r4;
+			(rnuma == 5'b00101): return r5;
+			(rnuma == 5'b00110): return r6;
+			(rnuma == 5'b00111): return r7;
+			(rnuma == 5'b01000): return r8;
+			(rnuma == 5'b01001): return r9;
+			(rnuma == 5'b01010): return r10;
+			(rnuma == 5'b01011): return r11;
+			(rnuma == 5'b01100): return r12;
+			(rnuma == 5'b01101): return r13;
+			(rnuma == 5'b01110): return r14;
+			(rnuma == 5'b01111): return r15;
+			(rnuma == 5'b10000): return r16;
+			(rnuma == 5'b10001): return r17;
+			(rnuma == 5'b10010): return r18;
+			(rnuma == 5'b10011): return r19;
+			(rnuma == 5'b10100): return r20;
+			(rnuma == 5'b10101): return r21;
+			(rnuma == 5'b10110): return r22;
+			(rnuma == 5'b10111): return r23;
+			(rnuma == 5'b11000): return r24;
+			(rnuma == 5'b11001): return r25;
+			(rnuma == 5'b11010): return r26;
+			(rnuma == 5'b11011): return r27;
+			(rnuma == 5'b11100): return r28;
+			(rnuma == 5'b11101): return r29;
+			(rnuma == 5'b11110): return r30;
+			(rnuma == 5'b11111): return r31;
+		}
+	}
+
+	func readb
+	{
+		any
+		{
+			(rnumb == 5'b00000): return 32'b0;
+			(rnumb == 5'b00001): return r1;
+			(rnumb == 5'b00010): return r2;
+			(rnumb == 5'b00011): return r3;
+			(rnumb == 5'b00100): return r4;
+			(rnumb == 5'b00101): return r5;
+			(rnumb == 5'b00110): return r6;
+			(rnumb == 5'b00111): return r7;
+			(rnumb == 5'b01000): return r8;
+			(rnumb == 5'b01001): return r9;
+			(rnumb == 5'b01010): return r10;
+			(rnumb == 5'b01011): return r11;
+			(rnumb == 5'b01100): return r12;
+			(rnumb == 5'b01101): return r13;
+			(rnumb == 5'b01110): return r14;
+			(rnumb == 5'b01111): return r15;
+			(rnumb == 5'b10000): return r16;
+			(rnumb == 5'b10001): return r17;
+			(rnumb == 5'b10010): return r18;
+			(rnumb == 5'b10011): return r19;
+			(rnumb == 5'b10100): return r20;
+			(rnumb == 5'b10101): return r21;
+			(rnumb == 5'b10110): return r22;
+			(rnumb == 5'b10111): return r23;
+			(rnumb == 5'b11000): return r24;
+			(rnumb == 5'b11001): return r25;
+			(rnumb == 5'b11010): return r26;
+			(rnumb == 5'b11011): return r27;
+			(rnumb == 5'b11100): return r28;
+			(rnumb == 5'b11101): return r29;
+			(rnumb == 5'b11110): return r30;
+			(rnumb == 5'b11111): return r31;
+		}
+	}
+	func write
+	{
+		any
+		{
+			(wnum == 5'b00000): ; 
+			(wnum == 5'b00001): r1 := wdata;
+			(wnum == 5'b00010): r2 := wdata;
+			(wnum == 5'b00011): r3 := wdata;
+			(wnum == 5'b00100): r4 := wdata;
+			(wnum == 5'b00101): r5 := wdata;
+			(wnum == 5'b00110): r6 := wdata;
+			(wnum == 5'b00111): r7 := wdata;
+			(wnum == 5'b01000): r8 := wdata;
+			(wnum == 5'b01001): r9 := wdata;
+			(wnum == 5'b01010): r10 := wdata;
+			(wnum == 5'b01011): r11 := wdata;
+			(wnum == 5'b01100): r12 := wdata;
+			(wnum == 5'b01101): r13 := wdata;
+			(wnum == 5'b01110): r14 := wdata;
+			(wnum == 5'b01111): r15 := wdata;
+			(wnum == 5'b10000): r16 := wdata;
+			(wnum == 5'b10001): r17 := wdata;
+			(wnum == 5'b10010): r18 := wdata;
+			(wnum == 5'b10011): r19 := wdata;
+			(wnum == 5'b10100): r20 := wdata;
+			(wnum == 5'b10101): r21 := wdata;
+			(wnum == 5'b10110): r22 := wdata;
+			(wnum == 5'b10111): r23 := wdata;
+			(wnum == 5'b11000): r24 := wdata;
+			(wnum == 5'b11001): r25 := wdata;
+			(wnum == 5'b11010): r26 := wdata;
+			(wnum == 5'b11011): r27 := wdata;
+			(wnum == 5'b11100): r28 := wdata;
+			(wnum == 5'b11101): r29 := wdata;
+			(wnum == 5'b11110): r30 := wdata;
+			(wnum == 5'b11111): r31 := wdata;
+		}
+	}
+}
+
+	

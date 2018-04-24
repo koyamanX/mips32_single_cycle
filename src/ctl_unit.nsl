@@ -1,0 +1,42 @@
+#include "mips32_single_cycle.h"
+#include "opcode.h"
+
+module ctl_unit
+{
+	any
+	{
+		(inst == RTYPE):
+		{
+			/* Rtype */
+			regDst();
+			regWrite();
+			aluOp1();
+		}
+		(inst == SW):
+		{
+			aluSrc();
+			mem2Reg();
+			regWrite();
+			memRead();
+		}
+		(inst == LW):
+		{
+			aluSrc();
+			memWrite();
+		}
+		(inst == BEQ):
+		{
+			branch();
+			aluOp0();
+		}
+		(inst == J):
+		{
+			jump();
+		}
+		(inst == ADDI):
+		{
+			aluSrc();
+			regWrite();
+		}
+	}
+}
